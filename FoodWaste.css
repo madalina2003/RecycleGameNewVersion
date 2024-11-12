@@ -64,15 +64,15 @@ img {
 }
 
 #compost-bin {
-  background-image: url('trash-bin-with-cover-brown.com.svg');
+  background-image: url('../img/trash-bin-with-cover-brown.com.svg');
 }
 
 #recycle-bin {
-  background-image: url('trash-bin-with-cover-svgrepo-com.svg');
+  background-image: url('../img/trash-bin-with-cover-svgrepo-com.svg');
 }
 
 #trash-bin {
-  background-image: url('trash-bin-with-cover-black.svg');
+  background-image: url('../img/trash-bin-with-cover-black.svg');
 }
 
 .bin span {
