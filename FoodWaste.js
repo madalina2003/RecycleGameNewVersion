@@ -4,18 +4,8 @@ let itemsPlaced = 0;
 const totalItems = document.querySelectorAll('.item').length;
 
 function drag(event) {
-  if (event.type === "touchstart") {
-    const touch = event.touches[0];
-    event.target.classList.add("dragging");
-    event.target.setAttribute('data-id', event.target.id);
-    event.target.setAttribute('data-type', event.target.dataset.type);
-    event.target.style.position = "absolute";
-    event.target.style.left = `${touch.pageX - event.target.offsetWidth / 2}px`;
-    event.target.style.top = `${touch.pageY - event.target.offsetHeight / 2}px`;
-  } else {
-    event.dataTransfer.setData("id", event.target.id);
-    event.dataTransfer.setData("type", event.target.dataset.type);
-  }
+  event.dataTransfer.setData("id", event.target.id);
+  event.dataTransfer.setData("type", event.target.dataset.type);
 }
 
 function allowDrop(event) {
@@ -25,21 +15,8 @@ function allowDrop(event) {
 function drop(event) {
   event.preventDefault();
 
-  let itemId, itemType;
-  if (event.type === "touchend") {
-    const touch = event.changedTouches[0];
-    const draggedItem = document.querySelector(".dragging");
-    itemId = draggedItem.getAttribute("data-id");
-    itemType = draggedItem.getAttribute("data-type");
-
-    draggedItem.style.left = `${touch.pageX - draggedItem.offsetWidth / 2}px`;
-    draggedItem.style.top = `${touch.pageY - draggedItem.offsetHeight / 2}px`;
-
-    draggedItem.classList.remove("dragging");
-  } else {
-    itemId = event.dataTransfer.getData("id");
-    itemType = event.dataTransfer.getData("type");
-  }
+  const itemId = event.dataTransfer.getData("id");
+  const itemType = event.dataTransfer.getData("type");
 
   const droppedItem = document.getElementById(itemId);
   const targetBin = event.target;
@@ -147,20 +124,9 @@ function resetGame() {
   document.getElementById("congratulations-modal").style.display = "none";
 }
 
-// Add event listeners for touch events
 document.querySelectorAll('.item').forEach(item => {
   item.addEventListener('touchstart', drag);
   item.addEventListener('touchmove', drag);
   item.addEventListener('touchend', drop);
   item.addEventListener('touchcancel', drop);
-});
-
-// Add event listeners for mouse events (desktop)
-document.querySelectorAll('.item').forEach(item => {
-  item.addEventListener('dragstart', drag);
-});
-
-document.querySelectorAll('.bin').forEach(bin => {
-  bin.addEventListener('dragover', allowDrop);
-  bin.addEventListener('drop', drop);
 });
