@@ -28,7 +28,7 @@ p {
   justify-content: center;
   gap: 20px;
   margin: 20px;
-  flex-wrap: wrap; /* Allow bins to wrap on smaller screens */
+  flex-wrap: wrap;
 }
 
 .bin {
@@ -129,7 +129,7 @@ img {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   color: #333;
-  max-width: 80%; /* Limit the width on mobile */
+  max-width: 80%;
 }
 
 #congratulations-modal div,
@@ -186,7 +186,6 @@ a button:hover {
   color: #ddd;
 }
 
-/* Mobile Styles */
 @media (max-width: 768px) {
   .bins {
     flex-direction: column;
@@ -200,7 +199,7 @@ a button:hover {
   }
 
   .items {
-    grid-template-columns: repeat(3, 1fr); /* Change to 3 columns on mobile */
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .item {
@@ -218,6 +217,58 @@ a button:hover {
 
   #congratulations-modal,
   #wrong-modal {
-    width: 90%; /* Take up more width on mobile */
+    width: 90%;
+    padding: 10px;
+  }
+
+  button {
+    padding: 8px 16px;
+  }
+
+  .close-btn {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 769px) {
+  .bins {
+    flex-direction: row;
+  }
+
+  .bin {
+    width: 160px;
+    height: 200px;
+    font-size: 22px;
+  }
+
+  .items {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .item {
+    width: 80px;
+    font-size: 50px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  #score {
+    font-size: 20px;
+  }
+
+  #congratulations-modal,
+  #wrong-modal {
+    width: 80%;
+    padding: 20px;
+  }
+
+  button {
+    padding: 10px 20px;
+  }
+
+  .close-btn {
+    font-size: 30px;
   }
 }
