@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How well can you sort waste?</title>
+  <link rel="stylesheet" href="css/FoodWaste.css">
+</head>
+<body>
+<h1>How well can you sort waste?</h1>
+<p>HOLD + drag the items into the correct bin:</p>
+
+<div id="score">Score: 0 Correct, 0 Wrong</div>
+
+<div class="bins">
+  <div class="bin" id="compost-bin" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <span>Compost</span>
+  </div>
+  <div class="bin" id="recycle-bin" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <span>Recycle</span>
+  </div>
+  <div class="bin" id="trash-bin" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <span>General waste</span>
+  </div>
+</div>
+
+<div class="items">
+  <!-- Add items here -->
+  <div class="item" id="item1" draggable="true" data-type="compost" ondragstart="drag(event)">🍌</div>
+  <div class="item" id="item2" draggable="true" data-type="recycle" ondragstart="drag(event)">🥫</div>
+  <div class="item" id="item4" draggable="true" data-type="compost" ondragstart="drag(event)">🍎</div>
+  <div class="item" id="item5" draggable="true" data-type="trash" ondragstart="drag(event)">&#x1F36B;</div>
+  <div class="item" id="item6" draggable="true" data-type="compost" ondragstart="drag(event)">&#x1F35F;</div>
+  <div class="item" id="item7" draggable="true" data-type="compost" ondragstart="drag(event)">🍊</div>
+  <div class="item" id="item8" draggable="true" data-type="recycle" ondragstart="drag(event)">&#129380;</div>
+  <div class="item" id="item9" draggable="true" data-type="trash" ondragstart="drag(event)">&#129475;</div>
+  <div class="item" id="item10" draggable="true" data-type="compost" ondragstart="drag(event)">&#x1F35E;</div>
+  <div class="item" id="item12" draggable="true" data-type="trash" ondragstart="drag(event)">&#x1F4E6;</div>
+  <div class="item" id="item11" draggable="true" data-type="compost" ondragstart="drag(event)">&#x1F35D;</div>
+  <div class="item" id="item13" draggable="true" data-type="trash" ondragstart="drag(event)">&#x1F374;</div>
+  <div class="item" id="item14" draggable="true" data-type="trash" ondragstart="drag(event)">&#x1F9C8;&#x1F4E6;</div>
+  <div class="item" id="item15" draggable="true" data-type="trash" ondragstart="drag(event)">&#x1F345;&#x1F4E6;</div>
+
+</div>
+
+<!-- Correct Modal -->
+<div id="congratulations-modal" style="display: none;">
+  <div>
+    <h2>Congratulations!</h2>
+    <p>You did it! Now try to better your first quiz.</p>
+    <a href="https://docs.google.com/forms/d/1kkHEe2Kh-Q7gvmdqyc5YjiT2Xp3P9SqkmYOnwVJAQY0/edit"><button>Go to quiz</button></a>
+  </div>
+</div>
+
+<!-- Wrong Modal -->
+<div id="wrong-modal" style="display: none;">
+  <div>
+    <span class="close-btn" onclick="closeWrongModal()">×</span>
+    <div class="talking-person"><img src="img/character.png"> </div>
+    <h2>Oops!</h2>
+    <p id="wrong-message">You chose the wrong bin. Try again!</p>
+  </div>
+</div>
+
+<script src="js/FoodWaste.js"></script>
+</body>
+</html>
