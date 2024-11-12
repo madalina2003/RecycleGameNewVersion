@@ -64,7 +64,7 @@ img {
 }
 
 #compost-bin {
-  background-image: url('../img/trash-bin-with-cover-brown.com.svg');
+  background-image: url('/img/trash-bin-with-cover-brown.com.svg');
 }
 
 #recycle-bin {
